@@ -1,0 +1,53 @@
+{
+  "name": "web-tools-ultima",
+  "version": "0.1.0",
+  "private": true,
+  "license": "CC-BY-NC-SA-4.0",
+  "type": "module",
+  "description": "WebToolsUltima — a local-first, in-browser tool platform. A growing library of fast, private tools (file conversion & compression, encoders, hashers, generators, calculators) that run entirely on your device. No server, no uploads.",
+  "keywords": [
+    "tools",
+    "browser",
+    "local-first",
+    "privacy",
+    "file-conversion",
+    "compression",
+    "wasm",
+    "ffmpeg",
+    "pdf",
+    "react",
+    "vite",
+    "typescript"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@ffmpeg/ffmpeg": "^0.12.10",
+    "@ffmpeg/util": "^0.12.1",
+    "epubjs": "^0.3.93",
+    "fflate": "^0.8.2",
+    "gifenc": "^1.0.3",
+    "imagetracerjs": "^1.2.6",
+    "libheif-js": "^1.18.2",
+    "mammoth": "^1.8.0",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^4.7.76",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "typescript": "5.6.3",
+    "vite": "^5.4.10",
+    "vitest": "^2.1.4"
+  }
+}

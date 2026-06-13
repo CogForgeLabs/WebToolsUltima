@@ -20,3 +20,6 @@ Thumbs.db
 
 # local reference material (not part of the project)
 freeconvert-*.png
+
+CLAUDE.md
+TOOL_LOG.md

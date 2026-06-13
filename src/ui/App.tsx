@@ -24,7 +24,18 @@ export function App() {
           <span className="brand-mark">◆</span>
           <span className="brand-name">WebToolsUltima</span>
         </button>
-        <PrivacyBadge />
+        <div className="topbar-right">
+          <a
+            className="home-link"
+            href="https://cognitive-industries.org"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <span className="home-link-arrow" aria-hidden="true">←</span>
+            <span className="home-link-label">Cognitive Industries</span>
+          </a>
+          <PrivacyBadge />
+        </div>
       </header>
 
       <main className="content">

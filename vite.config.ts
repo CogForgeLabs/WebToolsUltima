@@ -1,9 +1,16 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// Cross-Origin Isolation headers are required for ffmpeg.wasm's threaded build to use
-// SharedArrayBuffer. They are applied to both the dev server and the preview server.
-// For production hosting, configure the equivalent headers on your static host/CDN.
+// Cross-Origin Isolation (COOP: same-origin + COEP: require-corp) lets ffmpeg.wasm's
+// *threaded* build use SharedArrayBuffer. We apply it to the dev and preview servers ONLY,
+// so threaded builds can be tested locally.
+//
+// PRODUCTION INTENTIONALLY DOES NOT SET THESE HEADERS. The shipped engine loads the
+// single-threaded ffmpeg-core (see src/engines/ffmpeg/runtime.ts), which does not need
+// SharedArrayBuffer — so isolation buys us nothing in prod. Leaving COEP: require-corp off
+// also keeps the app embeddable in a cross-origin <iframe> (cognitive-industries.org currently
+// links out to it, but could embed it). Only add COI to the production hosting config if we
+// switch to ffmpeg-core-mt — and note that would then block iframe embedding.
 const crossOriginIsolation = {
   name: 'cross-origin-isolation',
   configureServer(server: { middlewares: { use: (fn: (req: unknown, res: { setHeader: (k: string, v: string) => void }, next: () => void) => void) => void } }) {
